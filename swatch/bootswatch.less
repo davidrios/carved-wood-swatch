@@ -1,10 +1,91 @@
 // Swatch 2.2.1
-// Bootswatch
+// Carved Wood Bootswatch
 // -----------------------------------------------------
 
+.page-background-gradient(@color, @center, @edge) {
+
+    background: @color;
+    background-image: linear-gradient(left , @edge 0%, @center 50%, @edge 100%);
+    background-image: -o-linear-gradient(left , @edge 0%, @center 50%, @edge 100%);
+    background-image: -moz-linear-gradient(left , @edge 0%, @center 50%, @edge 100%);
+    background-image: -webkit-linear-gradient(left , @edge 0%, @center 50%, @edge 100%);
+    background-image: -ms-linear-gradient(left , @edge 0%, @center 50%, @edge 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        right bottom,
+        color-stop(0, @edge),
+        color-stop(0.5, @center),
+        color-stop(1, @edge)
+    );
+}
+
+body {
+    .page-background-gradient(#ffebb6, #ffefc7, #f8e3ac);
+}
 
 // TYPOGRAPHY
 // -----------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
+    text-shadow: @white 1px 1px 6px, @white -1px -1px 6px;
+
+    small {
+        color: @strawDarker;
+    }
+}
+
+.page-header {
+  border-bottom: 1px solid @strawDarker;
+}
+
+h1 {
+  font-size: 33px;
+  small {
+    font-size: 21px;
+  }
+}
+h2 {
+  font-size: 27px;
+  small {
+    font-size: 21px;
+  }
+}
+h3 {
+  font-size: 21px;
+  small {
+    font-size: 17px;
+  }
+}
+h4 {
+  font-size: 17px;
+  small {
+    font-size: 15px;
+  }
+}
+h5 {
+  font-size: 15px;
+}
+h6 {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+blockquote {
+    border-left-color: @brownDark;
+    p {
+        font-size: 19px;
+    }
+    &.pull-right {
+        border-right-color: @brownDark;
+    }
+}
+
+.tooltip {
+    font-size: 14px;
+}
+
 
 // SCAFFOLDING
 // -----------------------------------------------------
@@ -12,11 +93,104 @@
 // NAVBAR
 // -----------------------------------------------------
 
+.navbar-search .search-query {
+  font-family: @baseFontFamily;
+  #font > .shorthand(@baseFontSize, normal, @baseLineHeight * 0.8);
+  height: @baseLineHeight * 0.8;
+  margin-bottom:0;
+}
+
+.navbar .nav > li > p {
+    padding: 9px 10px 0;
+    margin-bottom: 0;
+}
+
 // NAV
 // -----------------------------------------------------
 
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
+  background-color: @strawLight;
+  #gradient > .vertical(@white, @straw);
+  border: 1px solid @strawDarker;
+  border-bottom: 1px solid @straw;
+}
+
+.tabs-below .nav-tabs > .active > a,
+.tabs-below .nav-tabs > .active > a:hover {
+  background-color: @straw;
+  #gradient > .vertical(@straw, @white);
+  border: 1px solid @strawDarker;
+  border-top: 1px solid @straw;
+}
+
+.tabs-below > .nav-tabs {
+  border-top-color: @strawDarker;
+}
+
+.nav-tabs > li > a {
+  &:hover {
+    border-color: @strawDark @strawDark @strawDarker;
+  }
+}
+
+.tabs-below .nav-tabs > li > a {
+  &:hover {
+    border-color: @strawDarker @strawDark @strawDark;
+  }
+}
+
+.nav > li > a:hover {
+  background-color: @white;
+}
+
+.nav-tabs {
+  border-bottom-color: @strawDarker;
+}
+
+.accordion-group {
+  border-color: @strawDark;
+  background-color: @strawLight;
+}
+.accordion-heading {
+    background-color: @white;
+}
+.accordion-inner {
+  border-color: @strawDark;
+}
+
+
 // BUTTONS
 // -----------------------------------------------------
+
+.btn:hover {
+  background-color: darken(@strawLight, 10%);
+  *background-color: darken(@strawLight, 15%); /* Buttons in IE7 don't get borders, so darken on hover */
+}
+
+.btn-primary {
+  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+}
+// Warning appears are orange
+.btn-warning {
+  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+// Danger and error appear as red
+.btn-danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+// Success appears as green
+.btn-success {
+  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+}
+// Info appears as a neutral blue
+.btn-info {
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+// Inverse appears as dark gray
+.btn-inverse {
+  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}
 
 // TABLES
 // -----------------------------------------------------
@@ -24,14 +198,104 @@
 // FORMS
 // -----------------------------------------------------
 
+.form-actions {
+  border-top: 1px solid @strawDarker;
+}
+
+.input-prepend .add-on,
+.input-append .add-on {
+    background-color: @strawLight;
+    border: 1px solid @strawDark;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  &:focus {
+    border-color: fade(@strawDarker, 80%);
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(186,173,143,.6)");
+  }
+}
+
 // DROPDOWNS
 // -----------------------------------------------------
+
+.nav-tabs .open .dropdown-toggle,
+.nav-pills .open .dropdown-toggle,
+.nav > li.dropdown.open.active > a:hover {
+  background-color: @strawDarker;
+}
+
+.nav-tabs {
+    border-color:@strawDark;
+}
+
+.nav-tabs.nav-stacked > li > a {
+    border-color:@strawDark;
+}
 
 // ALERTS, LABELS, BADGES
 // -----------------------------------------------------
 
+.modal-header,
+.modal-footer {
+  background-color: @strawLight;
+}
+
+.modal-header {
+    .border-top-radius(6px);
+    border-bottom: 1px solid @strawDark;
+}
+
+.modal-footer {
+  border-top: 1px solid @strawDark;
+}
+
+.alert {
+    border-width:2px;
+}
+
 // MISC
 // -----------------------------------------------------
+
+.well {
+  border: 1px solid @strawDark;
+}
+
+.thumbnail {
+    background-color: @white;
+    border: 1px solid @strawDarker;
+}
+
+legend {
+    border-bottom-color: @strawDark;
+}
+
+.popover-title {
+  background-color: @strawLight;
+}
+
+.btn .caret {
+    margin-top:10px;
+}
+
+.breadcrumb {
+    border: 1px solid @strawDark;
+    #gradient > .vertical(@white, @strawLight);
+}
 
 // MEDIA QUERIES
 // -----------------------------------------------------
